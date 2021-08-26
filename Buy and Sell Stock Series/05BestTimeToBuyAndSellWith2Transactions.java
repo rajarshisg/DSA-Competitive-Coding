@@ -1,4 +1,3 @@
-/* LeetCode 123 --> Best Time to Buy and Sell Stock III */
 class Solution {
     public int maxProfit(int[] prices) {
         /* For One Transaction we need to buy the stock on the day it has minimum value and sell on the day it has maximum */
@@ -8,13 +7,13 @@ class Solution {
         int[] leftProfit = new int[prices.length]; // leftProfit[i] --> max profit on ith day staring from 0th day
         int[] rightProfit = new int[prices.length]; // rightProfit[i] --> max profit on ith day starting from last day
         
-        int minPrice = prices[0];
+        int minPrice = prices[0]; //in going from Left to Right we need to buy then sell so we consider minPrice
         for(int i=1;i<prices.length;i++) {
             leftProfit[i] = Math.max(leftProfit[i-1], prices[i] - minPrice);
             minPrice = Math.min(prices[i], minPrice);
         }
         
-        int maxPrice = prices[prices.length - 1];
+        int maxPrice = prices[prices.length - 1]; //in going from right to left i.e. against time we need to sell then buy so we need to consider maxPrice
         for(int i=prices.length - 2;i>=0;i--) {
             rightProfit[i] = Math.max(rightProfit[i+1], maxPrice - prices[i]);
             maxPrice = Math.max(prices[i], maxPrice);
