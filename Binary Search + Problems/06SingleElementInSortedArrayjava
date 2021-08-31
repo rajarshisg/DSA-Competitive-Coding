@@ -1,4 +1,4 @@
-/* Question Link - https://leetcode.com/problems/find-the-duplicate-number/ */
+/* Question Link - https://leetcode.com/problems/single-element-in-a-sorted-array/ */
 class Solution {
     public int singleNonDuplicate(int[] nums) {
         //we use the property that before the single ele
